@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InvoiceRequest {
-    @NotEmpty(message = "Merchant name is required")
+    @NotBlank(message = "Merchant name is required")
     private String merchantName;
     @NotEmpty(message = "Merchant address is required")
     private String merchantAddress;
