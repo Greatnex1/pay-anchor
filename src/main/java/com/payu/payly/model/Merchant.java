@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Setter
 @Getter
@@ -16,16 +18,12 @@ public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
    private String name;
    @Column(unique = true)
    @Email
    private String email;
-   @Column(nullable = false)
     private String address;
-    @Column(nullable = false)
-   private String phoneNumber;
+   private String hotline;
     @CreationTimestamp
-    private String dateCreated;
-    private String dateUpdated;
+    private LocalDateTime dateCreated;
 }
