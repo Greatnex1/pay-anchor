@@ -1,9 +1,8 @@
 package com.payu.payly.dto.request;
 
 import com.payu.payly.model.ProductDetail;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.util.List;
@@ -11,6 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class InvoiceRequest {
     @NotBlank(message = "Merchant name is required")
     private String merchantName;
