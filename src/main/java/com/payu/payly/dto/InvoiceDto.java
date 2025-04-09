@@ -3,7 +3,9 @@ package com.payu.payly.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
