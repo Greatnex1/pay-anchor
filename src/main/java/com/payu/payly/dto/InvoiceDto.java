@@ -3,8 +3,6 @@ package com.payu.payly.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import static com.payu.payly.validator.InputValidator.validateInput;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
