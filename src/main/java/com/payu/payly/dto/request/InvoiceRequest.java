@@ -1,6 +1,8 @@
 package com.payu.payly.dto.request;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.payu.payly.model.ProductDetail;
+import com.payu.payly.validator.ProductDetailListDeserializer;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -19,5 +21,6 @@ public class InvoiceRequest {
     @Email(message= "Invalid email address")
     private String merchantEmail;
     @NotEmpty(message = "Product details required")
+    @JsonDeserialize(using = ProductDetailListDeserializer.class)
     private List<ProductDetail> productDetails;
 }
