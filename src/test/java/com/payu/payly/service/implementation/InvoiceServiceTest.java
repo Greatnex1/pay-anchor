@@ -31,6 +31,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Log4j2
+
 class InvoiceServiceTest {
   @Autowired
    private MerchantRepository merchantRepository;
@@ -131,14 +132,17 @@ invoiceRequest = InvoiceRequest.builder()
         invoiceUrlRequest.setMerchantId(invoiceDto.getMerchantId());
         InvoiceDto invoiceDto1 = invoiceService.generateInvoiceDetailsLink(invoiceUrlRequest);
         assertNotNull(invoiceDto1);
-        MatcherAssert.assertThat(invoiceDto1.getUrl(), instanceOf(String.class));
+        assertNotNull(invoiceUrlRequest, "Invoice with URL should not be null");
+
+       MatcherAssert.assertThat(invoiceDto1.getUrl(), instanceOf(String.class));
 
         String invoice = invoiceService.viewInvoice(String.valueOf(invoiceDto.getMerchantId()), String.valueOf(invoiceDto.getInvoiceId()));
         assertNotNull(invoice);
         MatcherAssert.assertThat(invoiceDto1.getUrl(), instanceOf(String.class));
-
         PaymentLink paymentLink = invoiceService.generatePaymentLink(String.valueOf(invoiceDto.getInvoiceId()));
         assertNotNull(paymentLink);
+        assertNotNull(paymentLink, "Payment link should not be null");
+
         MatcherAssert.assertThat(paymentLink.getPaymentUrl(), instanceOf(String.class));
     }
 
