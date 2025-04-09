@@ -158,7 +158,6 @@ invoiceRequest = InvoiceRequest.builder()
         return objectMapper.writeValueAsString(invoiceRequest.getProductDetails());
 
     }
-
     private static BigDecimal getProductTotal(InvoiceRequest invoiceRequest) {
         return invoiceRequest.getProductDetails().stream().map(productDetails1 -> productDetails1.getProductPrice()
                 .multiply(BigDecimal.valueOf(productDetails1.getProductQuantity()))).reduce(BigDecimal.ZERO, BigDecimal::add);
