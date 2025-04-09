@@ -31,7 +31,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Log4j2
-
 class InvoiceServiceTest {
   @Autowired
    private MerchantRepository merchantRepository;
